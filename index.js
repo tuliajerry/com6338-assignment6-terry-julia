@@ -2,12 +2,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const hamburgerBtn = document.querySelector('.hamburger-btn');
   const hamburgerMenu = document.querySelector('.hamburger-menu');
 
- 
   const toggleMenu = () => {
     const isMenuOpen = hamburgerMenu.classList.toggle('show-menu');
     hamburgerBtn.setAttribute('aria-expanded', isMenuOpen);
   };
-
 
   const closeMenu = () => {
     if (hamburgerMenu.classList.contains('show-menu')) {
@@ -17,19 +15,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-
   hamburgerBtn.addEventListener('click', (e) => {
     e.stopPropagation();
     toggleMenu();
   });
 
- 
   document.addEventListener('click', (e) => {
     if (!hamburgerMenu.contains(e.target) && !hamburgerBtn.contains(e.target)) {
       closeMenu();
     }
   });
-
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
@@ -37,7 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
- 
   hamburgerMenu.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       closeMenu();
