@@ -27,12 +27,21 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
+    if (e.key === 'Escape' && hamburgerMenu.classList.contains('show-menu')) {
       closeMenu();
     }
   });
 
   hamburgerMenu.addEventListener('click', (e) => {
     e.stopPropagation();
+  });
+
+  const menuItems = hamburgerMenu.querySelectorAll('a');
+  menuItems.forEach(item => {
+    item.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeMenu();
+      }
+    });
   });
 });
