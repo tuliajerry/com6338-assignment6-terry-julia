@@ -32,9 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  hamburgerMenu.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      closeMenu();
-    }
+  hamburgerMenu.addEventListener('click', (e) => {
+    e.stopPropagation();
   });
 });
